@@ -150,7 +150,7 @@
     cursor:pointer;
     font-weight:700;
 }
-.btn-coder { background:#456328ff; color:#fff; }
+.btn-coder { background:#377b2f; color:#fff; }
 .btn-close { background:#4b190d; color:#fff; }
 
 /* Test container */
@@ -209,7 +209,7 @@
     overflow-y: auto;        /* permite rolar dentro da caixa */
 }
 
-.line-error { color: rgba(255,0,0,0.6); }
+.line-error { color: rgb(255, 36, 36); }
 .line-correct { color: #00ff00; }
 
 /* ======== ADIÇÕES: menu File + status message + modal ======== */
@@ -379,6 +379,9 @@
     justify-content: center;
 }
 
+
+/* Botão X */
+/* (ajustado dentro da janela) */
 #closeTutorial {
     position: absolute;
     top: 8px;              /* move para dentro da caixa - estava 10 px antes */
@@ -412,255 +415,6 @@
 
 .dg .close-button { display: none !important; } /*Ocultar Open Control*/
 
-/* =========================================================
-   📱 MOBILE UX FIXES — SEM ALTERAR LÓGICA
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-  /* ===== JANELAS (Exercises / About) ===== */
-  #exerciseWindow,
-  #aboutWindow {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    max-height: 100vh !important;
-    border-radius: 0 !important;
-    overflow: hidden;
-  }
-
-  #exerciseContent,
-  #aboutContent {
-    height: calc(100vh - 46px) !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* ===== EXERCISES LAYOUT ===== */
-  #exerciseContent {
-    flex-direction: column !important;
-  }
-
-  #exerciseList {
-    width: 100% !important;
-    max-height: 160px;
-    flex-direction: row !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    gap: 6px;
-  }
-
-  #exerciseList .exerciseBtn {
-    white-space: nowrap;
-    min-width: max-content;
-  }
-
-  #exerciseViewer {
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  #imageWrap {
-    min-height: 220px;
-  }
-
-  /* ===== TEST CONTAINER ===== */
-  #testContainer textarea {
-    height: 160px !important;
-  }
-
-  /* ===== TUTORIAL ===== */
-  #tutorialContent {
-    position: fixed !important;
-    inset: 0 !important;
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0;
-    padding-top: 48px;
-  }
-
-  #tutorialVideo {
-    width: 100%;
-    height: auto;
-    max-height: 70vh;
-  }
-
-  #closeTutorial {
-    top: 8px;
-    right: 12px;
-    font-size: 22px;
-  }
-  
-  .ui-resizable-handle,
-  .ui-draggable-handle {
-    display: none !important;
-  }
-
-  #editor,
-  #canvasContainer {
-    touch-action: pan-y;
-  }
-
-}
-
-@media (max-width: 768px) {
-
-  #exerciseWindow,
-  #aboutWindow {
-    position: fixed !important;
-    inset: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    max-height: 100vh !important;
-    border-radius: 0 !important;
-    overflow: hidden !important;
-  }
-
-  #exerciseWindow .cwsx-header,
-  #aboutWindow .cwsx-header {
-    position: sticky;
-    top: 0;
-    z-index: 99999;
-  }
-
-  #closeExercise,
-  #closeAbout,
-  #closeTutorial {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    min-width: 44px;
-    min-height: 36px;
-    font-size: 18px;
-    z-index: 100000;
-  }
-
-  #exerciseContent {
-    flex-direction: column !important;
-    height: calc(100vh - 46px) !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  #exerciseList {
-    width: 100% !important;
-    max-height: 150px;
-    flex-direction: row !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    white-space: nowrap;
-  }
-
-  #exerciseViewer {
-    flex: 1;
-    min-height: 0;
-  }
-
-  .viewer-buttons {
-    position: sticky;
-    bottom: 0;
-    background: #1e1b1b;
-    padding-bottom: env(safe-area-inset-bottom);
-    z-index: 9999;
-  }
-
-  /* ===============================
-     TEST CONTAINER SCROLL OK
-     =============================== */
-  #testContainer {
-    overflow-y: auto;
-  }
-
-  /* ===============================
-     TUTORIAL — VIDEO GRANDE
-     =============================== */
-  #tutorialContent {
-    position: fixed !important;
-    inset: 0 !important;
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0;
-    padding-top: 52px;
-  }
-
-  #tutorialVideo {
-    width: 100% !important;
-    height: auto !important;
-    max-height: 75vh !important;
-  }
-
-  /* ===============================
-     LANDSCAPE — GARANTE VISUALIZAÇÃO
-     =============================== */
-  @media (orientation: landscape) {
-    #exerciseWindow,
-    #aboutWindow,
-    #tutorialContent {
-      height: 100vh !important;
-    }
-
-    #exerciseList {
-      max-height: 120px;
-    }
-
-    #tutorialVideo {
-      max-height: 85vh !important;
-    }
-  }
-
-  .ui-resizable-handle,
-  .ui-draggable-handle {
-    display: none !important;
-  }
-}
-/* =====================================================
-   🔥 FIX DEFINITIVO — HAMBURGUER SÓ NO MOBILE
-   ===================================================== */
-
-/* Desktop: nunca mostrar */
-#exerciseHamburger {
-  display: none !important;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-
-  /* Header precisa alinhar */
-  #exerciseWindow .cwsx-header {
-    display: flex !important;
-    align-items: center;
-    gap: 8px;
-  }
-
-  /* MOSTRAR hamburguer */
-  #exerciseHamburger {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #fff;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-  }
-
-  /* Lista começa fechada */
-  #exerciseList {
-    display: none !important;
-    width: 100% !important;
-    max-height: 260px;
-    overflow-y: auto;
-  }
-
-  /* Quando abrir */
-  #exerciseList.open {
-    display: flex !important;
-    flex-direction: column;
-  }
-}
-
 </style>
 
 </head>
@@ -682,9 +436,9 @@
 
 <nav>
     <ul>
-        <li><div id="fileButton"><span title="File" class="icon icon-folder-open"></span>File</div></li>
-        <li><div id="openExercises"><span title="Exercises" class="icon icon-pencil"></span>Exercise</div></li>
-        <li><div><span title="About" class="icon icon-info"></span>About</div></li>
+        <li><div id="fileButton"><span title="File" class="icon icon-folder-open"></span>Arquivo</div></li>
+        <li><div id="openExercises"><span title="Exercises" class="icon icon-pencil"></span>Exercícios</div></li>
+        <li><div><span title="About" class="icon icon-info"></span>Sobre</div></li>
         <li><div><span title="Tutorial" class="icon icon-play3 notImplemented"></span>Tutorial</div>
     </ul>
 </nav>
@@ -698,9 +452,9 @@
 
 <!-- File menu dropdown -->
 <div id="fileMenu">
-    <button id="newFile">New</button>
-    <button id="saveFile">Save</button>
-    <button id="openFile">Open</button>
+    <button id="newFile">Novo</button>
+    <button id="saveFile">Salvar</button>
+    <button id="openFile">Abrir</button>
     <input type="file" id="fileInputFallback" accept=".txt" style="display:none" />
 </div>
 
@@ -710,48 +464,47 @@
 
 <div id="exerciseWindow">
     <div class="cwsx-header">
-        <button id="exerciseHamburger" aria-label="Toggle exercises">☰</button>
-        <div class="cwsx-title">Exercises</div>
+        <div class="cwsx-title">Exercícios</div>
         <button id="closeExercise">X</button>
     </div>
 
     <div id="exerciseContent">
         <div id="exerciseList">
-            <button class="exerciseBtn" data-ex="1">Exercise 1 (✮☆☆☆)</button>
-            <button class="exerciseBtn" data-ex="2">Exercise 2 (✮☆☆☆)</button>
-            <button class="exerciseBtn" data-ex="3">Exercise 3 (✮✮☆☆)</button>
-            <button class="exerciseBtn" data-ex="4">Exercise 4 (✮✮☆☆)</button>
-            <button class="exerciseBtn" data-ex="5">Exercise 5 (✮✮✮☆)</button>
-            <button class="exerciseBtn" data-ex="6">Exercise 6 (✮✮✮☆)</button>
-            <button class="exerciseBtn" data-ex="7">Exercise 7 (✮✮✮☆)</button>
-            <button class="exerciseBtn" data-ex="8">Exercise 8 (✮✮✮☆)</button>
-            <button class="exerciseBtn" data-ex="9">Exercise 9 (✮✮✮✮)</button>
-            <button class="exerciseBtn" data-ex="10">Exercise 10 (✮✮✮✮)</button>
+            <button class="exerciseBtn" data-ex="1">Exercício 1 (✮☆☆☆)</button>
+            <button class="exerciseBtn" data-ex="2">Exercício 2 (✮☆☆☆)</button>
+            <button class="exerciseBtn" data-ex="3">Exercício 3 (✮✮☆☆)</button>
+            <button class="exerciseBtn" data-ex="4">Exercício 4 (✮✮☆☆)</button>
+            <button class="exerciseBtn" data-ex="5">Exercício 5 (✮✮✮☆)</button>
+            <button class="exerciseBtn" data-ex="6">Exercício 6 (✮✮✮☆)</button>
+            <button class="exerciseBtn" data-ex="7">Exercício 7 (✮✮✮☆)</button>
+            <button class="exerciseBtn" data-ex="8">Exercício 8 (✮✮✮☆)</button>
+            <button class="exerciseBtn" data-ex="9">Exercício 9 (✮✮✮✮)</button>
+            <button class="exerciseBtn" data-ex="10">Exercício 10 (✮✮✮✮)</button>
         </div>
 
         <div id="exerciseViewer">
-            <h3 id="exerciseTitle">Select an exercise</h3>
+            <h3 id="exerciseTitle">Selecione um exercício</h3>
             <div id="imageWrap">
                 <img id="exerciseImage" src="" alt="Exercise Image">
                 <img id="answerImage" src="" alt="Answer Image">
             </div>
 
             <div class="viewer-buttons">
-                <button id="viewCoder" class="btn-coder">Code</button>
-                <button id="viewTest" class="btn-coder">Test</button>
+                <button id="viewCoder" class="btn-coder">Código</button>
+                <button id="viewTest" class="btn-coder">Testar</button>
                <!-- <button id="closeViewer" class="btn-close">Close</button>-->
             </div>
 
             <div id="testContainer">
-                <label for="modeSelect">Select the mode used:</label>
+                <label for="modeSelect">Selecione o modo utilizado:</label>
                 <select id="modeSelect">
                     <option value="G90">Absoluto G90</option>
                     <option value="G91">Incremental G91</option>
                 </select>
-                <textarea id="userGcode" placeholder="Insert the G-code for correction"></textarea>
+                <textarea id="userGcode" placeholder="Insira o G-Code para a correção"></textarea>
                 <div id="testButtons">
-                    <button id="backButton">Back</button>
-                    <button id="checkButton">Check</button>
+                    <button id="backButton">Voltar</button>
+                    <button id="checkButton">Testar</button>
                 </div>
                 <div id="testFeedback"></div>
             </div>
@@ -764,10 +517,10 @@
 
 <!-- save confirm modal -->
 <div id="saveConfirmModal" role="dialog" aria-modal="true">
-  <p>Do you want to save the G-Code?</p>
+  <p>Você gostaria de salvar o G-Code?</p>
   <div class="modalButtons">
-    <button class="saveBtn" id="modalSaveBtn">Save</button>
-    <button class="dontSaveBtn" id="modalDontSaveBtn">Don't save</button>
+    <button class="saveBtn" id="modalSaveBtn">Salvar</button>
+    <button class="dontSaveBtn" id="modalDontSaveBtn">Não Salvar</button>
   </div>
 </div>
 
@@ -780,7 +533,6 @@ window.addEventListener("load", (function () {
         new CWS.Renderer("renderer1"),
         new CWS.Motion(),
         true
-        
     );
 
     ui = new CWS.UI(controller);
@@ -980,15 +732,6 @@ window.addEventListener("load", (function () {
         closeExerciseWindow();
     });
 
-const hamburger = document.getElementById("exerciseHamburger");
-const exerciseList = document.getElementById("exerciseList");
-
-if (hamburger && exerciseList) {
-    hamburger.addEventListener("click", function () {
-        exerciseList.classList.toggle("open");
-    });
-}
-
     function closeExerciseWindow(){
         $("#exerciseWindow").fadeOut();
         $("#exerciseTitle").text("Select an exercise");
@@ -1088,18 +831,18 @@ const gabaritos = {
             const uline = line.replace(/\s/g,'');
             const cline = (correctLines[i]||"").replace(/\s/g,'');
             if(uline !== cline){
-                display += `<div class="line-error">${line} <- Incorrect</div>`;
-                display += `<div class="line-correct">${correctLines[i]} <- Correct this line</div>`;
+                display += `<div class="line-error">${line} <- Incorreto</div>`;
+                display += `<div class="line-correct">${correctLines[i]} <- Corrija esta linha</div>`;
             } else {
                 display += `<div>${line}</div>`;
             }
         });
 
         if(userCode.replace(/\s/g,'') === gabaritos[ex][mode].replace(/\s/g,'')){
-            feedback = "✅The code is correct. Well done!";
+            feedback = "✅O código está correto. Muito bem!";
             $("#testFeedback").html(feedback);
         } else {
-            feedback = "❌The code is incorrect.\nIncorrect lines are shown in red and correct ones in green below:";
+            feedback = "❌O código está incorreto.\nLinhas incorretas estão em vermelho e corretas em verde.";
             $("#testFeedback").html(feedback + "<br>" + display);
         }
     });
@@ -1311,6 +1054,9 @@ document.addEventListener("DOMContentLoaded", function() {
         <p><strong>Missão</strong><br>
         Democratizar o acesso ao conhecimento em programação CNC, proporcionando uma ferramenta educacional gratuita, de qualidade e acessível, que prepare estudantes e profissionais para os desafios da indústria moderna.</p>
 
+        <p><strong>Contato</strong><br>
+        E-mail: isac.barbosa@ifrn.edu.br</p>
+
         <p style="text-align:center; margin-top:10px;">
           <em>Desenvolvido no Brasil | IFRN – Campus Mossoró | RENOEN 2023–2027</em>
         </p>
@@ -1321,7 +1067,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // adiciona no body
   document.body.insertAdjacentHTML("beforeend", aboutHTML);
 
-    // Habilita arrastar e redimensisonar (jQuery UI precisa estar carregado)
+    // Habilita arrastar e redimensionar (jQuery UI precisa estar carregado)
   $("#aboutWindow").draggable({ handle: ".cwsx-header" }).resizable({
     minWidth: 320,
     minHeight: 200,
