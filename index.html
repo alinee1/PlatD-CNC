@@ -776,7 +776,7 @@ window.addEventListener("load", (function () {
     $(document).on("click", ".exerciseBtn", function(){
         currentEx = $(this).data("ex");
         showingAnswer = false;
-        $("#exerciseTitle").text("Exercise " + currentEx);
+        $("#exerciseTitle").text("Exercício " + currentEx);
         setImage($("#exerciseImage"), "images/Ativ" + currentEx + ".jpg");
         $("#exerciseImage").show();
         $("#answerImage").hide();
@@ -787,12 +787,12 @@ window.addEventListener("load", (function () {
     $("#exerciseWindow").on("click", "#viewCoder", function(){
         if(!currentEx) return;
         if(showingAnswer){
-            $("#exerciseTitle").text("Exercise " + currentEx);
+            $("#exerciseTitle").text("Exercício " + currentEx);
             $("#exerciseImage").show();
             $("#answerImage").hide();
             showingAnswer = false;
         } else {
-            $("#exerciseTitle").text("Answer " + currentEx);
+            $("#exerciseTitle").text("Resposta " + currentEx);
             setImage($("#answerImage"), "images/Resp" + currentEx + ".jpg");
             $("#answerImage").show();
             $("#exerciseImage").hide();
